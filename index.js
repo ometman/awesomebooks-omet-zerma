@@ -19,6 +19,11 @@ function newBook() {
   localStorage.setItem('collection', JSON.stringify(collection));
 }
 
+function deleteBook(idNumber) {
+  collection = collection.filter((books) => books.idNumber !== idNumber);
+  localStorage.setItem('collection', JSON.stringify(collection));
+}
+
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   if (title.value !== '' && author.value !== '') {
