@@ -3,14 +3,10 @@ const title = document.getElementById('bk-title');
 const author = document.getElementById('bk-author');
 const bookList = document.getElementById('show-bks');
 let collection = JSON.parse(localStorage.getItem('collection')) || [];
-// let book = [{
-//   title: 'Alpen',
-//   author: 'Zalpen',
-//   id: 1234574,
-// }];
+let book = {};
 
 function newBook() {
-  const book = {
+  book = {
     title: title.value,
     author: author.value,
     idNumber: Math.floor(Math.random() * 1000000),
@@ -39,6 +35,7 @@ function printCollection(book) {
     deleteBook(book.idNumber);
   });
 }
+
 collection.forEach(printCollection);
 
 form.addEventListener('submit', (event) => {
