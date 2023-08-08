@@ -67,17 +67,17 @@ class Display {
   }
 
   static clearFields() {
-    document.querySelector('#title').value = '';
-    document.querySelector('#author').value = '';
+    document.querySelector('#bk-title').value = '';
+    document.querySelector('#bk-author').value = '';
   }
 }
 
 document.addEventListener('DOMContentLoaded', Display.showBooks);
 
-document.querySelector('#form').addEventListener('submit', (e) => {
+document.querySelector('#new-bk').addEventListener('submit', (e) => {
   e.preventDefault();
-  const title = document.querySelector('#title').value;
-  const author = document.querySelector('#author').value;
+  const title = document.querySelector('#bk-title').value;
+  const author = document.querySelector('#bk-author').value;
 
   if (title === '' || author === '') {
     Display.showAlert('Enter valid values for title and author fields, please.');
@@ -92,7 +92,7 @@ document.querySelector('#form').addEventListener('submit', (e) => {
   }
 });
 
-document.querySelector('#books-list').addEventListener('click', (e) => {
+document.querySelector('#show-bks').addEventListener('click', (e) => {
   Display.deleteBook(e.target);
 
   Storage.delBook(e.target.parentElement.previousElementSibling.lastElementChild.textContent);
