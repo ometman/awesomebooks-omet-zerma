@@ -71,3 +71,29 @@ class Display {
     document.querySelector('#author').value = '';
   }
 }
+
+document.addEventListener('DOMContentLoaded', Display.showBooks);
+
+document.querySelector('#form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const title = document.querySelector('#title').value;
+  const author = document.querySelector('#author').value;
+
+  if (title === '' || author === '') {
+    Display.showAlert('Enter valid values for title and author fields, please.');
+  } else {
+    const book = new Book(title, author);
+
+    Display.printCollection(book);
+
+    Storage.newBook(book);
+
+    Display.clearFields();
+  }
+});
+
+document.querySelector('#books-list').addEventListener('click', (e) => {
+  Display.deleteBook(e.target);
+
+  Storage.delBook(e.target.parentElement.previousElementSibling.lastElementChild.textContent);
+});
