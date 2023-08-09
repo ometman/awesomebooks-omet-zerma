@@ -197,11 +197,19 @@ h2 {
 
 .contact-section p,
 ul {
-  font-size: 2rem;
+  font-size: 1.2rem;
 }
 
 .contact-section ul {
   list-style: outside;
+}
+
+#contact-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }
 
 section {
