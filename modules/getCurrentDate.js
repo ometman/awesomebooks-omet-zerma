@@ -5,7 +5,7 @@ import { mainHeader } from './header.js';
 
 export const currentDate = () => {
   const dt = DateTime.now();
-  const currentDateTime = dt.toLocaleString(DateTime.DATE_HUGE);
+  const currentDateTime = dt.toLocaleString(DateTime.DATETIME_FULL_WITH_SECONDS);
 
   const dateContainer = document.createElement('div');
   dateContainer.className = 'current-date';
